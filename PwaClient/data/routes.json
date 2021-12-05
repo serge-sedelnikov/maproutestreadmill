@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "link": "https://youtu.be/UONK_bCri2I",
+        "durationMin": 51,
+        "location": {
+            "country": "USA",
+            "place": "Homer Alaska"
+        },
+        "type": "walk",
+        "geojson": {
+            "type": "Point",
+            "coordinates": [
+                -151.540157,
+                59.648173
+            ]
+        }
+    }
+]
