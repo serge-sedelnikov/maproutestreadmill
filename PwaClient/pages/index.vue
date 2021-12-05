@@ -1,7 +1,17 @@
 <template lang="pug">
 div.full-screen
-  map-main.full-screen
+  map-main.full-screen(:routes="routes")
+  core-toolbar
 </template>
+
+<script>
+import { mapState } from 'vuex'
+export default {
+  computed: {
+    ...mapState('main', ['routes'])
+  }
+}
+</script>
 
 <style lang="sass" scoped>
 .full-screen

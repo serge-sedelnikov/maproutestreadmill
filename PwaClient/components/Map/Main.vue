@@ -1,10 +1,18 @@
 <template lang="pug">
 .map-container
   .full-screen(ref='mapContainer')
+  map-route-container(:map="map" :routes="routes")
 </template>
 
 <script>
+import 'azure-maps-control/dist/atlas.css'
 export default {
+  props: {
+    routes: {
+      type: Array,
+      required: true
+    }
+  },
   data() {
     return {
       map: null,
@@ -13,6 +21,9 @@ export default {
   mounted() {
     // create map
     const map = new this.$atlas.Map(this.$refs.mapContainer, {
+      renderWorldCopies: true,
+      showLogo: true,
+      style: 'grayscale_dark',
       authOptions: {
         authType: 'subscriptionKey',
         subscriptionKey: process.env.NUXT_ENV_AZURE_MAPS_API_KEY,
