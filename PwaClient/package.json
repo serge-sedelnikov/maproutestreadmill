@@ -13,11 +13,9 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/pwa": "^3.3.5",
+    "azure-maps-control": "^2.1.8",
     "core-js": "^3.15.1",
     "nuxt": "^2.15.7",
-    "pug": "^3.0.2",
-    "pug-plain-loader": "^1.1.0",
-    "vue-azure-maps": "0.0.30",
     "vuetify": "^2.5.5"
   },
   "devDependencies": {
@@ -31,6 +29,8 @@
     "eslint-plugin-vue": "^7.12.1",
     "prettier": "^2.3.2",
     "sass": "^1.44.0",
-    "sass-loader": "^10"
+    "sass-loader": "^10",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0"
   }
 }
