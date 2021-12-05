@@ -1,6 +1,6 @@
 <template lang="pug">
 div.full-screen
-  azure-map.full-screen
+  map-main.full-screen
 </template>
 
 <style lang="sass" scoped>

@@ -1,5 +1,5 @@
 <template lang="pug">
-.map-comntainer
+.map-container
   azure-map.full-screen
 </template>
 
@@ -8,7 +8,7 @@ export default {}
 </script>
 
 <style lang="sass" scoped>
-.map-comntainer
+.map-container
     position: relative
 .full-screen
     position: absolute
