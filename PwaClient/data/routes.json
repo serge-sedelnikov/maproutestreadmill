@@ -15,5 +15,55 @@
                 59.648173
             ]
         }
+    },
+    {
+        "id": 2,
+        "link": "https://youtu.be/PT0xYq0_WPk",
+        "durationMin": 62,
+        "location": {
+            "country": "USA",
+            "place": "Seward Alaska"
+        },
+        "type": "walk",
+        "geojson": {
+            "type": "Point",
+            "coordinates": [
+                -149.435985,
+                60.121974
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "link": "https://www.youtube.com/watch?v=8BXDdMYGl50",
+        "durationMin": 39,
+        "location": {
+            "country": "USA",
+            "place": "Gillette Wyoming"
+        },
+        "type": "walk",
+        "geojson": {
+            "type": "Point",
+            "coordinates": [
+                -105.503114,
+                44.276184
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "link": "https://www.youtube.com/watch?v=x2Ay8RflX28",
+        "durationMin": 24,
+        "location": {
+            "country": "USA",
+            "place": "St George Utah"
+        },
+        "type": "walk",
+        "geojson": {
+            "type": "Point",
+            "coordinates": [
+                -113.575179, 37.098180
+            ]
+        }
     }
 ]

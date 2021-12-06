@@ -2,11 +2,17 @@
 div.full-screen
   map-main.full-screen(:routes="routes")
   core-toolbar
+  details-drawer(:expanded="expanded")
 </template>
 
 <script>
 import { mapState } from 'vuex'
 export default {
+  data() {
+    return {
+      expanded: false
+    }
+  },
   computed: {
     ...mapState('main', ['routes'])
   }

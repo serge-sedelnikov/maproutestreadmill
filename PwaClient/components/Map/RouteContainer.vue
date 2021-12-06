@@ -23,15 +23,35 @@ export default {
     },
   },
   methods: {
+    pointClicked(point) {
+      console.log(point)
+    },
     renderRoutes() {
       const atlas = this.$atlas
       const { map, routes } = this
-      const source = new atlas.source.DataSource()
-      map.sources.add(source)
-      map.layers.add(new atlas.layer.BubbleLayer(source));
-      routes.forEach((route) => {
-        source.add(route.geojson)
+      const source = new atlas.source.DataSource(null, {
+        cluster: true,
       })
+      map.sources.add(source)
+      const pointsLayer = new atlas.layer.BubbleLayer(source)
+      map.layers.add(pointsLayer)
+      routes.forEach((route) => {
+        // add all props to geoJson as additioal data
+        const geoJson = {
+          ...route.geojson,
+          properties: {
+            ...route,
+            geojson: undefined
+          }
+        }
+        console.log(geoJson)
+        source.add(geoJson)
+      })
+      const pointClicked = this.pointClicked
+      const callback = function (event) {
+        pointClicked(event)
+      }
+      map.events.add('click', pointsLayer, callback)
     },
   },
 }
