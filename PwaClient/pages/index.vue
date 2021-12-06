@@ -2,21 +2,29 @@
 .full-screen
   map-main.full-screen(:routes='routes', @routeClicked='handleRouteClicked')
   core-toolbar
-  details-drawer(:expanded='expanded')
+  details-drawer(v-model='expanded')
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
 export default {
   data() {
-    return {}
+    return {
+      expanded: false,
+    }
   },
   computed: {
     ...mapState('main', ['routes', 'selectedRoute']),
-    expanded() {
-      console.log(this.selectedRoute)
-      return !!this.selectedRoute
+  },
+  watch: {
+    selectedRoute(val) {
+      this.expanded = !!val
     },
+    expanded(val) {
+      if(!val) {
+        this.setSelectedRoute(null)
+      }
+    }
   },
   methods: {
     ...mapActions('main', ['setSelectedRoute']),

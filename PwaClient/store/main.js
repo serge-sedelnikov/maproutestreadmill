@@ -7,8 +7,11 @@ export const state = {
 
 export const mutations = {
     setSelectedRoute(state, id) {
+        if(!id) {
+            state.selectedRoute = null
+            return
+        }
         const route = state.routes.find(route => route.id === id)
-        console.log(route)
         state.selectedRoute = route
     }
 }
