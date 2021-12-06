@@ -1,21 +1,30 @@
 <template lang="pug">
-div.full-screen
-  map-main.full-screen(:routes="routes")
+.full-screen
+  map-main.full-screen(:routes='routes', @routeClicked='handleRouteClicked')
   core-toolbar
-  details-drawer(:expanded="expanded")
+  details-drawer(:expanded='expanded')
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   data() {
-    return {
-      expanded: false
-    }
+    return {}
   },
   computed: {
-    ...mapState('main', ['routes'])
-  }
+    ...mapState('main', ['routes', 'selectedRoute']),
+    expanded() {
+      console.log(this.selectedRoute)
+      return !!this.selectedRoute
+    },
+  },
+  methods: {
+    ...mapActions('main', ['setSelectedRoute']),
+    handleRouteClicked(id) {
+      console.log(id)
+      this.setSelectedRoute(id)
+    },
+  },
 }
 </script>
 

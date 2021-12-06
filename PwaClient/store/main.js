@@ -2,17 +2,19 @@ import demoRoutes from '@/data/routes.json'
 
 export const state = {
     routes: demoRoutes,
-    selectedRoutes: []
+    selectedRoute: null
 }
 
 export const mutations = {
-    setSelectedRoutes({ state }, routes) {
-        state.selectedRoutes = routes
+    setSelectedRoute(state, id) {
+        const route = state.routes.find(route => route.id === id)
+        console.log(route)
+        state.selectedRoute = route
     }
 }
 
 export const actions = {
-    setSelectedRoutes({ commit }, routes) {
-        commit('setSelectedRoutes', routes)
+    setSelectedRoute({ commit }, id) {
+        commit('setSelectedRoute', id)
     }
 }

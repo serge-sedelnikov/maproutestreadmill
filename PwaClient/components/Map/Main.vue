@@ -1,7 +1,7 @@
 <template lang="pug">
 .map-container
   .full-screen(ref='mapContainer')
-  map-route-container(:map="map" :routes="routes")
+  map-route-container(:map="map" :routes="routes" @routeClicked="(id) => $emit('routeClicked', id)")
 </template>
 
 <script>

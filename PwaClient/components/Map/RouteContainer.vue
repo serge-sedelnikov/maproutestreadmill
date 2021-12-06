@@ -15,6 +15,11 @@ export default {
       default: () => null,
     },
   },
+  data() {
+    return {
+      datasource: null,
+    }
+  },
   watch: {
     map() {
       if (this.map) {
@@ -23,16 +28,51 @@ export default {
     },
   },
   methods: {
-    pointClicked(point) {
-      console.log(point)
+    // what happens when user clicks on the point
+    pointClicked(e) {
+      const { datasource, map } = this
+      // if clicking on cluster, zoom on it
+      if (
+        e &&
+        e.shapes &&
+        e.shapes.length > 0 &&
+        e.shapes[0].properties?.cluster
+      ) {
+        // Get the clustered point from the event.
+        const cluster = e.shapes[0]
+
+        // Get the cluster expansion zoom level. This is the zoom level at which the cluster starts to break apart.
+        datasource
+          .getClusterExpansionZoom(cluster.properties.cluster_id)
+          .then(function (zoom) {
+            // Update the map camera to be centered over the cluster.
+            map.setCamera({
+              center: cluster.geometry.coordinates,
+              zoom,
+              type: 'ease',
+              duration: 200,
+            })
+          })
+        return
+      }
+      // if clicking on point, set it as selected
+      this.$emit('routeClicked', e.shapes[0].data.geometry.properties.id)
     },
+    // renders points on the map
     renderRoutes() {
       const atlas = this.$atlas
       const { map, routes } = this
       const source = new atlas.source.DataSource(null, {
         cluster: true,
+        // The radius in pixels to cluster points together.
+        clusterRadius: 45,
+        // The maximium zoom level in which clustering occurs.
+        // If you zoom in more than this, all points are rendered as symbols.
+        clusterMaxZoom: 15,
       })
       map.sources.add(source)
+      this.datasource = source
+      // TODO: Add style for each point based on type, etc.
       const pointsLayer = new atlas.layer.BubbleLayer(source)
       map.layers.add(pointsLayer)
       routes.forEach((route) => {
@@ -41,10 +81,9 @@ export default {
           ...route.geojson,
           properties: {
             ...route,
-            geojson: undefined
-          }
+            geojson: undefined,
+          },
         }
-        console.log(geoJson)
         source.add(geoJson)
       })
       const pointClicked = this.pointClicked
