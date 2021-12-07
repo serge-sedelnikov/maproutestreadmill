@@ -1,10 +1,10 @@
 {
     "proxies": {
-        "HelloProxy": {
+        "VideoInfoProxy": {
             "matchCondition": {
                 "route": "/v1/youtube-info?url={videoUrl}"
             },
-            "backendUri": "http://youtube.com/oembed?url={videoUrl}&format=json"
+            "backendUri": "https://youtube.com/oembed?url={videoUrl}&format=json"
         }
     }
 }
