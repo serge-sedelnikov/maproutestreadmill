@@ -1,5 +1,17 @@
 <template lang="pug">
-v-navigation-drawer(bottom, temporary, app, v-model='expanded')
+v-navigation-drawer(
+  bottom,
+  temporary,
+  app,
+  fixed,
+  v-model='expanded',
+  :mobile-breakpoint='99999',
+)
+  template(v-slot:prepend)
+    .d-flex
+      v-spacer
+      v-btn.ma-2(icon, @click='expanded = false')
+        v-icon mdi mdi-close
   div
     video-item(:route='selectedRoute')
 </template>
