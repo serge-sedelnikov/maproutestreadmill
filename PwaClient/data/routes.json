@@ -62,7 +62,76 @@
         "geojson": {
             "type": "Point",
             "coordinates": [
-                -113.575179, 37.098180
+                -113.575179,
+                37.098180
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "link": "https://www.youtube.com/watch?v=qtgO2KoT2M4",
+        "durationMin": 42,
+        "location": {
+            "country": "New Zeland",
+            "place": "Katiki Point Lighthouse"
+        },
+        "type": "run",
+        "geojson": {
+            "type": "Point",
+            "coordinates": [
+                170.860283,
+                -45.392558
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "link": "https://www.youtube.com/watch?v=ZPiwSFjDvHY",
+        "durationMin": 67,
+        "location": {
+            "country": "New Zeland",
+            "place": "Mount John"
+        },
+        "type": "run",
+        "geojson": {
+            "type": "Point",
+            "coordinates": [
+                170.466710,
+                -43.984135
+            ]
+        }
+    },
+    {
+        "id": 7,
+        "link": "https://www.youtube.com/watch?v=y8MPmYirBhc",
+        "durationMin": 52,
+        "location": {
+            "country": "Norway",
+            "place": "Bergen"
+        },
+        "type": "run",
+        "geojson": {
+            "type": "Point",
+            "coordinates": [
+                5.322029,
+                60.389885
+            ]
+        }
+    },
+    {
+        "id": 8,
+        "link": "https://youtu.be/2zcr5h90ppA",
+        "durationMin": 55,
+        "location": {
+            "country": "UK",
+            "place": "London"
+        },
+        "type": "run",
+        "geojson": {
+            "type": "Point",
+            "coordinates": [
+                -0.158010,
+                51.490435
             ]
         }
     }

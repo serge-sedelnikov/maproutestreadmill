@@ -3,9 +3,9 @@ v-navigation-drawer(
   bottom,
   temporary,
   app,
-  fixed,
   v-model='expanded',
   :mobile-breakpoint='99999',
+  elevation='4'
 )
   template(v-slot:prepend)
     .d-flex
