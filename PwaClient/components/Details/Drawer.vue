@@ -1,9 +1,11 @@
 <template lang="pug">
 v-navigation-drawer(bottom, temporary, app, v-model='expanded')
   div
+    video-item(:route='selectedRoute')
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   props: {
     value: {
@@ -15,6 +17,9 @@ export default {
     return {
       expanded: this.value,
     }
+  },
+  computed: {
+    ...mapState('main', ['selectedRoute']),
   },
   watch: {
     value(val) {

@@ -63,12 +63,7 @@ export default {
       const atlas = this.$atlas
       const { map, routes } = this
       const source = new atlas.source.DataSource(null, {
-        cluster: true,
-        // The radius in pixels to cluster points together.
-        clusterRadius: 45,
-        // The maximium zoom level in which clustering occurs.
-        // If you zoom in more than this, all points are rendered as symbols.
-        clusterMaxZoom: 15,
+        cluster: false,
       })
       map.sources.add(source)
       this.datasource = source
