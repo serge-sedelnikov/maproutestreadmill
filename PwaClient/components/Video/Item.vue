@@ -53,7 +53,7 @@ export default {
         return
       }
       const videoUrl = this.route.link
-      const url = `http://youtube.com/oembed?url=${videoUrl}&format=json`
+      const url = `http://youtube.com/oembed?url=${videoUrl}&format=json&origin=https://runningonmapdev.z16.web.core.windows.net`
       const { data } = await this.$axios.get(url)
       this.videoData = data
     },
