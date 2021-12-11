@@ -134,5 +134,56 @@
                 51.490435
             ]
         }
+    },
+    {
+        "id": 9,
+        "link": "https://www.youtube.com/watch?v=7QKBT05kw08",
+        "durationMin": 85,
+        "location": {
+            "country": "Finland",
+            "place": "Helsinki, Lauttasaari"
+        },
+        "type": "walk",
+        "geojson": {
+            "type": "Point",
+            "coordinates": [
+                24.872021,
+                60.161323
+            ]
+        }
+    },
+    {
+        "id": 10,
+        "link": "https://youtu.be/7yANGb79c4o",
+        "durationMin": 66,
+        "location": {
+            "country": "Finland",
+            "place": "Tampere"
+        },
+        "type": "walk",
+        "geojson": {
+            "type": "Point",
+            "coordinates": [
+                23.776411,
+                61.494863
+            ]
+        }
+    },
+    {
+        "id": 11,
+        "link": "https://youtu.be/cNfXeZmePfM",
+        "durationMin": 64,
+        "location": {
+            "country": "Finland",
+            "place": "Tampere"
+        },
+        "type": "walk",
+        "geojson": {
+            "type": "Point",
+            "coordinates": [
+                23.768736,
+                61.497245
+            ]
+        }
     }
 ]
