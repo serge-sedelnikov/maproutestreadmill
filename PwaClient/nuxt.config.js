@@ -56,7 +56,11 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en'
+      name: 'Remote walks',
+      lang: 'en',
+      background_color: '#FFEB3B',
+      theme_color: '#FFEB3B',
+      
     }
   },
 
