@@ -18,7 +18,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ]
   },
 
@@ -58,9 +58,9 @@ export default {
     manifest: {
       name: 'Remote walks',
       lang: 'en',
-      background_color: '#FFEB3B',
-      theme_color: '#FFEB3B',
-      
+      background_color: '#262626',
+      theme_color: '#262626',
+
     }
   },
 
