@@ -2,6 +2,7 @@
 .map-container
   .full-screen(ref='mapContainer')
   map-route-container(:map="map" :routes="routes" @routeClicked="(id) => $emit('routeClicked', id)")
+  map-viewbox(:map="map")
 </template>
 
 <script>
