@@ -22,7 +22,7 @@ export default {
     },
   },
   methods: {
-    mapViewboxChanged(event) {
+    mapViewboxChanged() {
       // get camera and current map bound box
       const { bounds } = this.map.getCamera()
       // bounds is a set of 2 points - a corners of the viewport
@@ -39,7 +39,7 @@ export default {
           ],
         ],
       }
-      console.log(JSON.stringify(geojson))
+      this.$emit('mapViewportChanged', geojson)
     },
   },
 }

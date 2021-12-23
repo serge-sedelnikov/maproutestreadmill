@@ -2,7 +2,7 @@
 .map-container
   .full-screen(ref='mapContainer')
   map-route-container(:map="map" :routes="routes" @routeClicked="(id) => $emit('routeClicked', id)")
-  map-viewbox(:map="map")
+  map-viewbox(:map="map" @mapViewportChanged="(geojson) = $emit('mapViewportChanged', id)")
 </template>
 
 <script>
