@@ -6,17 +6,21 @@ v-navigation-drawer(
   v-model='expanded',
   :mobile-breakpoint='99999',
   elevation='4'
+  height="700px"
 )
   template(v-slot:prepend)
     .d-flex
       //- buttons to start video
-      video-control-buttons(:route="selectedRoute")
+      v-container
+        video-control-buttons(:route="selectedRoute")
       //- END buttons to start video
       v-spacer
       v-btn.ma-2(icon, @click='expanded = false')
         v-icon mdi mdi-close
   div
+    //- Selected video details
     video-item(:route='selectedRoute')
+    //- END Selected video details
 </template>
 
 <script>

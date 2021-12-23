@@ -1,5 +1,5 @@
 <template lang="pug">
-    div.d-flex.flex-wrap
+    div(v-if='videoData && route').d-flex.flex-wrap
         v-btn(outlined, :href='route.link', target='_blank', large).mr-3.mt-3
             v-icon mdi mdi-play
         v-btn(
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { fetchVideoInfo } from '@/services/video'
+import { fetchVideoInfo } from '~/plugins/video'
 export default {
   props: {
     /** Route to render */
@@ -23,12 +23,17 @@ export default {
       default: () => null,
     },
   },
+  data() {
+    return {
+      videoData: null,
+    }
+  },
   async fetch() {
-    await fetchVideoInfo()
+    this.videoData = await fetchVideoInfo(this.route)
   },
   watch: {
-    async route() {
-      await fetchVideoInfo()
+    async route(val) {
+      this.videoData = await fetchVideoInfo(val)
     },
   },
 }
