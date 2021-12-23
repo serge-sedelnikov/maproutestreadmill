@@ -1,0 +1,10 @@
+{
+    "proxies": {
+        "VideoInfoProxy": {
+            "matchCondition": {
+                "route": "/v1/youtube-info?url={videoUrl}"
+            },
+            "backendUri": "https://youtube.com/oembed?url={videoUrl}&format=json"
+        }
+    }
+}
