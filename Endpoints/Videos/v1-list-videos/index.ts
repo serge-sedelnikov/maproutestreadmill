@@ -1,17 +1,24 @@
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+import { AzureFunction, HttpRequest } from "@azure/functions";
+import * as AzureMiddleware from "azure-middleware";
+import resolveDbConnection from "../middlewares/resolve-db-connection";
+import CustomContext from "../core/CustomContext";
 
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
-    const name = (req.query.name || (req.body && req.body.name));
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
-
+/** Main function code */
+const httpTrigger: AzureFunction = async function (
+  context: CustomContext,
+  req: HttpRequest
+): Promise<void> {
+  context.res.status(200).json({ message: "OK" });
+  // exit
+  context.done();
 };
 
-export default httpTrigger;
+// wrap up a resolve tenant middleware
+const doFunction = new AzureMiddleware()
+  // warning! order of middlewares matters
+  // need to first authenticate user, then resolve tenant based on the user authenticated
+  .use(resolveDbConnection)
+  .use(httpTrigger)
+  .listen();
+
+export default doFunction;
