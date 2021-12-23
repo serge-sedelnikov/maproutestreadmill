@@ -20,3 +20,4 @@ The following settings are required to be in `.env` file:
 
 | --- | --- |
 | `NUXT_ENV_AZURE_MAPS_API_KEY` | The key to access Azure Maps |
+| `NUXT_ENV_API_ENDPOINT` | Mail videos API endpoint base URL |

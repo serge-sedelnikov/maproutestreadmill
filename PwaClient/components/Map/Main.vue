@@ -2,10 +2,11 @@
 .map-container
   .full-screen(ref='mapContainer')
   map-route-container(:map="map" :routes="routes" @routeClicked="(id) => $emit('routeClicked', id)")
-  map-viewbox(:map="map" @mapViewportChanged="(geojson) = $emit('mapViewportChanged', id)")
+  map-viewbox(:map="map" @mapViewportChanged="(geojson) => $emit('mapViewportChanged', geojson)")
 </template>
 
 <script>
+import { MapApiKey } from '@/config'
 import 'azure-maps-control/dist/atlas.css'
 export default {
   props: {
@@ -27,7 +28,7 @@ export default {
       style: 'grayscale_dark',
       authOptions: {
         authType: 'subscriptionKey',
-        subscriptionKey: process.env.NUXT_ENV_AZURE_MAPS_API_KEY,
+        subscriptionKey: MapApiKey,
       },
     })
     this.map = map

@@ -1,6 +1,6 @@
 <template lang="pug">
 .full-screen
-  map-main.full-screen(:routes='routes', @routeClicked='handleRouteClicked')
+  map-main.full-screen(:routes='routes', @routeClicked='handleRouteClicked' @mapViewportChanged="handleViewportChanged")
   core-toolbar
   details-drawer(v-model='expanded')
 </template>
@@ -21,16 +21,20 @@ export default {
       this.expanded = !!val
     },
     expanded(val) {
-      if(!val) {
+      if (!val) {
         this.setSelectedRoute(null)
       }
-    }
+    },
   },
   methods: {
     ...mapActions('main', ['setSelectedRoute']),
     handleRouteClicked(id) {
       this.setSelectedRoute(id)
     },
+    handleViewportChanged(geojson) {
+      // need to fetch the routes for current viewport
+      console.log(geojson)
+    }
   },
 }
 </script>
