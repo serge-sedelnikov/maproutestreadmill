@@ -9,6 +9,9 @@ v-navigation-drawer(
 )
   template(v-slot:prepend)
     .d-flex
+      //- buttons to start video
+      video-control-buttons(:route="selectedRoute")
+      //- END buttons to start video
       v-spacer
       v-btn.ma-2(icon, @click='expanded = false')
         v-icon mdi mdi-close

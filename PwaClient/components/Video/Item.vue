@@ -24,6 +24,7 @@ div
 </template>
 
 <script>
+import { fetchVideoInfo } from '@/services/video'
 export default {
   props: {
     /** Route to render */
@@ -39,22 +40,11 @@ export default {
     }
   },
   async fetch() {
-    await this.fetchVideoInfo()
+    await fetchVideoInfo()
   },
   watch: {
     async route() {
-      await this.fetchVideoInfo()
-    },
-  },
-  methods: {
-    async fetchVideoInfo() {
-      if (!this.route) {
-        return
-      }
-      const videoUrl = this.route.link
-      const url = `https://youtube.com/oembed?url=${videoUrl}&format=json`
-      const { data } = await this.$axios.get(url)
-      this.videoData = data
+      await fetchVideoInfo()
     },
   },
 }
