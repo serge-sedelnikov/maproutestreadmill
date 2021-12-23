@@ -8,6 +8,14 @@ const httpTrigger: AzureFunction = async function (
   context: CustomContext,
   req: HttpRequest
 ): Promise<void> {
+  // the API must contain a polygon geojson to fetch data within this polygon
+  const boundaries = req.body;
+  if (!boundaries) {
+    context.res.status(400).json({ error: "Body must be a GeoJson polygon." });
+    context.done();
+    return;
+  }
+  // query the db for the routes within this boundaries
   context.res.status(200).json({ message: "OK" });
   // exit
   context.done();
