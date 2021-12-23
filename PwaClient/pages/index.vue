@@ -29,7 +29,6 @@ export default {
   methods: {
     ...mapActions('main', ['setSelectedRoute']),
     handleRouteClicked(id) {
-      console.log(id)
       this.setSelectedRoute(id)
     },
   },

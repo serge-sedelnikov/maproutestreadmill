@@ -165,17 +165,8 @@
     "geojson": {
       "type": "Feature",
       "geometry": {
-        "type": "GeometryCollection",
-        "geometries": [
-          {
-            "type": "Point",
-            "coordinates": [135.07584, 48.483927]
-          },
-          {
-            "type": "Point",
-            "coordinates": [135.081001, 48.479745]
-          }
-        ]
+        "type": "Point",
+        "coordinates": [135.07584, 48.483927]
       }
     }
   }

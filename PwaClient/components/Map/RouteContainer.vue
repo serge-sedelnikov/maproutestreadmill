@@ -30,7 +30,6 @@ export default {
   methods: {
     // what happens when user clicks on the point
     pointClicked(e) {
-      console.log(e)
       const { datasource, map } = this
       // if clicking on cluster, zoom on it
       if (
@@ -66,7 +65,12 @@ export default {
       const atlas = this.$atlas
       const { map, routes } = this
       const source = new atlas.source.DataSource(null, {
-        cluster: false,
+        cluster: true,
+        // The radius in pixels to cluster points together.
+        clusterRadius: 45,
+        // The maximum zoom level in which clustering occurs.
+        // If you zoom in more than this, all points are rendered as symbols.
+        clusterMaxZoom: 15,
       })
       map.sources.add(source)
       this.datasource = source
