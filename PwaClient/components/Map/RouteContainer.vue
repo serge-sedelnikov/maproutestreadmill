@@ -30,6 +30,7 @@ export default {
   methods: {
     // what happens when user clicks on the point
     pointClicked(e) {
+      console.log(e)
       const { datasource, map } = this
       // if clicking on cluster, zoom on it
       if (
@@ -56,7 +57,9 @@ export default {
         return
       }
       // if clicking on point, set it as selected
-      this.$emit('routeClicked', e.shapes[0].data.geometry.properties.id)
+      const properties =
+        e.shapes[0].data.geometry.properties || e.shapes[0].data.properties
+      this.$emit('routeClicked', properties.id)
     },
     // renders points on the map
     renderRoutes() {

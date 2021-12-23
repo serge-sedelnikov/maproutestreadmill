@@ -1,189 +1,182 @@
 [
-    {
-        "id": 1,
-        "link": "https://youtu.be/UONK_bCri2I",
-        "durationMin": 51,
-        "location": {
-            "country": "USA",
-            "place": "Homer Alaska"
-        },
-        "type": "walk",
-        "geojson": {
-            "type": "Point",
-            "coordinates": [
-                -151.540157,
-                59.648173
-            ]
-        }
+  {
+    "id": 1,
+    "link": "https://youtu.be/UONK_bCri2I",
+    "durationMin": 51,
+    "location": {
+      "country": "USA",
+      "place": "Homer Alaska"
     },
-    {
-        "id": 2,
-        "link": "https://youtu.be/PT0xYq0_WPk",
-        "durationMin": 62,
-        "location": {
-            "country": "USA",
-            "place": "Seward Alaska"
-        },
-        "type": "walk",
-        "geojson": {
-            "type": "Point",
-            "coordinates": [
-                -149.435985,
-                60.121974
-            ]
-        }
-    },
-    {
-        "id": 3,
-        "link": "https://www.youtube.com/watch?v=8BXDdMYGl50",
-        "durationMin": 39,
-        "location": {
-            "country": "USA",
-            "place": "Gillette Wyoming"
-        },
-        "type": "walk",
-        "geojson": {
-            "type": "Point",
-            "coordinates": [
-                -105.503114,
-                44.276184
-            ]
-        }
-    },
-    {
-        "id": 4,
-        "link": "https://www.youtube.com/watch?v=x2Ay8RflX28",
-        "durationMin": 24,
-        "location": {
-            "country": "USA",
-            "place": "St George Utah"
-        },
-        "type": "walk",
-        "geojson": {
-            "type": "Point",
-            "coordinates": [
-                -113.575179,
-                37.098180
-            ]
-        }
-    },
-    {
-        "id": 5,
-        "link": "https://www.youtube.com/watch?v=qtgO2KoT2M4",
-        "durationMin": 42,
-        "location": {
-            "country": "New Zeland",
-            "place": "Katiki Point Lighthouse"
-        },
-        "type": "run",
-        "geojson": {
-            "type": "Point",
-            "coordinates": [
-                170.860283,
-                -45.392558
-            ]
-        }
-    },
-    {
-        "id": 6,
-        "link": "https://www.youtube.com/watch?v=ZPiwSFjDvHY",
-        "durationMin": 67,
-        "location": {
-            "country": "New Zeland",
-            "place": "Mount John"
-        },
-        "type": "run",
-        "geojson": {
-            "type": "Point",
-            "coordinates": [
-                170.466710,
-                -43.984135
-            ]
-        }
-    },
-    {
-        "id": 7,
-        "link": "https://www.youtube.com/watch?v=y8MPmYirBhc",
-        "durationMin": 52,
-        "location": {
-            "country": "Norway",
-            "place": "Bergen"
-        },
-        "type": "run",
-        "geojson": {
-            "type": "Point",
-            "coordinates": [
-                5.322029,
-                60.389885
-            ]
-        }
-    },
-    {
-        "id": 8,
-        "link": "https://youtu.be/2zcr5h90ppA",
-        "durationMin": 55,
-        "location": {
-            "country": "UK",
-            "place": "London"
-        },
-        "type": "run",
-        "geojson": {
-            "type": "Point",
-            "coordinates": [
-                -0.158010,
-                51.490435
-            ]
-        }
-    },
-    {
-        "id": 9,
-        "link": "https://www.youtube.com/watch?v=7QKBT05kw08",
-        "durationMin": 85,
-        "location": {
-            "country": "Finland",
-            "place": "Helsinki, Lauttasaari"
-        },
-        "type": "walk",
-        "geojson": {
-            "type": "Point",
-            "coordinates": [
-                24.872021,
-                60.161323
-            ]
-        }
-    },
-    {
-        "id": 10,
-        "link": "https://youtu.be/7yANGb79c4o",
-        "durationMin": 66,
-        "location": {
-            "country": "Finland",
-            "place": "Tampere"
-        },
-        "type": "walk",
-        "geojson": {
-            "type": "Point",
-            "coordinates": [
-                23.776411,
-                61.494863
-            ]
-        }
-    },
-    {
-        "id": 11,
-        "link": "https://youtu.be/cNfXeZmePfM",
-        "durationMin": 64,
-        "location": {
-            "country": "Finland",
-            "place": "Tampere"
-        },
-        "type": "walk",
-        "geojson": {
-            "type": "Point",
-            "coordinates": [
-                23.768736,
-                61.497245
-            ]
-        }
+    "type": "walk",
+    "geojson": {
+      "type": "Point",
+      "coordinates": [-151.540157, 59.648173]
     }
+  },
+  {
+    "id": 2,
+    "link": "https://youtu.be/PT0xYq0_WPk",
+    "durationMin": 62,
+    "location": {
+      "country": "USA",
+      "place": "Seward Alaska"
+    },
+    "type": "walk",
+    "geojson": {
+      "type": "Point",
+      "coordinates": [-149.435985, 60.121974]
+    }
+  },
+  {
+    "id": 3,
+    "link": "https://www.youtube.com/watch?v=8BXDdMYGl50",
+    "durationMin": 39,
+    "location": {
+      "country": "USA",
+      "place": "Gillette Wyoming"
+    },
+    "type": "walk",
+    "geojson": {
+      "type": "Point",
+      "coordinates": [-105.503114, 44.276184]
+    }
+  },
+  {
+    "id": 4,
+    "link": "https://www.youtube.com/watch?v=x2Ay8RflX28",
+    "durationMin": 24,
+    "location": {
+      "country": "USA",
+      "place": "St George Utah"
+    },
+    "type": "walk",
+    "geojson": {
+      "type": "Point",
+      "coordinates": [-113.575179, 37.09818]
+    }
+  },
+  {
+    "id": 5,
+    "link": "https://www.youtube.com/watch?v=qtgO2KoT2M4",
+    "durationMin": 42,
+    "location": {
+      "country": "New Zeland",
+      "place": "Katiki Point Lighthouse"
+    },
+    "type": "run",
+    "geojson": {
+      "type": "Point",
+      "coordinates": [170.860283, -45.392558]
+    }
+  },
+  {
+    "id": 6,
+    "link": "https://www.youtube.com/watch?v=ZPiwSFjDvHY",
+    "durationMin": 67,
+    "location": {
+      "country": "New Zeland",
+      "place": "Mount John"
+    },
+    "type": "run",
+    "geojson": {
+      "type": "Point",
+      "coordinates": [170.46671, -43.984135]
+    }
+  },
+  {
+    "id": 7,
+    "link": "https://www.youtube.com/watch?v=y8MPmYirBhc",
+    "durationMin": 52,
+    "location": {
+      "country": "Norway",
+      "place": "Bergen"
+    },
+    "type": "run",
+    "geojson": {
+      "type": "Point",
+      "coordinates": [5.322029, 60.389885]
+    }
+  },
+  {
+    "id": 8,
+    "link": "https://youtu.be/2zcr5h90ppA",
+    "durationMin": 55,
+    "location": {
+      "country": "UK",
+      "place": "London"
+    },
+    "type": "run",
+    "geojson": {
+      "type": "Point",
+      "coordinates": [-0.15801, 51.490435]
+    }
+  },
+  {
+    "id": 9,
+    "link": "https://www.youtube.com/watch?v=7QKBT05kw08",
+    "durationMin": 85,
+    "location": {
+      "country": "Finland",
+      "place": "Helsinki, Lauttasaari"
+    },
+    "type": "walk",
+    "geojson": {
+      "type": "Point",
+      "coordinates": [24.872021, 60.161323]
+    }
+  },
+  {
+    "id": 10,
+    "link": "https://youtu.be/7yANGb79c4o",
+    "durationMin": 66,
+    "location": {
+      "country": "Finland",
+      "place": "Tampere"
+    },
+    "type": "walk",
+    "geojson": {
+      "type": "Point",
+      "coordinates": [23.776411, 61.494863]
+    }
+  },
+  {
+    "id": 11,
+    "link": "https://youtu.be/cNfXeZmePfM",
+    "durationMin": 64,
+    "location": {
+      "country": "Finland",
+      "place": "Tampere"
+    },
+    "type": "walk",
+    "geojson": {
+      "type": "Point",
+      "coordinates": [23.768736, 61.497245]
+    }
+  },
+  {
+    "id": 12,
+    "link": "https://www.youtube.com/watch?v=2BDxGnfvuQs&list=PLHr0JIh97gHWn8ok63KqKyWpZMukpjLMi",
+    "durationMin": 99,
+    "location": {
+      "country": "Russia",
+      "place": "Khabarovsk"
+    },
+    "type": "walk",
+    "geojson": {
+      "type": "Feature",
+      "geometry": {
+        "type": "GeometryCollection",
+        "geometries": [
+          {
+            "type": "Point",
+            "coordinates": [135.07584, 48.483927]
+          },
+          {
+            "type": "Point",
+            "coordinates": [135.081001, 48.479745]
+          }
+        ]
+      }
+    }
+  }
 ]
