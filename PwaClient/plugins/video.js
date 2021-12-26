@@ -1,6 +1,7 @@
+import { VideoApiBaseUrl } from '~/config'
 
 const self = {
-  axios: null
+  axios: null,
 }
 
 /**
@@ -20,12 +21,15 @@ export const fetchVideoInfo = async (route) => {
 
 /**
  * Fetches the list of the video routes within the given geojson polygon
- * @param {*} polygonGeoJson 
+ * @param {*} polygonGeoJson
  */
-export const fetchVideosWithinPolygon = (polygonGeoJson) => {
-  
+export const fetchVideosWithinPolygon = async (polygonGeoJson) => {
+  const url = `${VideoApiBaseUrl}/api/v1/videos`
+  const { data } = await self.axios.post(url, polygonGeoJson)
+  // TODO: add exception handling
+  return data
 }
 
-export default function({ app }, inject) {
+export default function ({ app }) {
   self.axios = app.$axios
 }

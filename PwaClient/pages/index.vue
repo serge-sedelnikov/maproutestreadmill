@@ -27,13 +27,13 @@ export default {
     },
   },
   methods: {
-    ...mapActions('main', ['setSelectedRoute']),
+    ...mapActions('main', ['setSelectedRoute', 'fetchVideosWithinPolygon']),
     handleRouteClicked(id) {
       this.setSelectedRoute(id)
     },
     handleViewportChanged(geojson) {
       // need to fetch the routes for current viewport
-      console.log(geojson)
+      this.fetchVideosWithinPolygon(geojson)
     }
   },
 }
