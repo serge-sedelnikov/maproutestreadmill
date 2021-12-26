@@ -23,14 +23,15 @@ export default {
   mounted() {
     // create map
     const map = new this.$atlas.Map(this.$refs.mapContainer, {
-      renderWorldCopies: true,
+      renderWorldCopies: false,
       showLogo: true,
       style: 'grayscale_dark',
       authOptions: {
         authType: 'subscriptionKey',
         subscriptionKey: MapApiKey,
       },
-      minZoom: 1
+      minZoom: 1,
+      maxBounds: [-180, -80, 180, 80],
     })
     this.map = map
   },

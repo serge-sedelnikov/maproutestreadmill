@@ -16,12 +16,6 @@ export default {
   watch: {
     map() {
       if (this.map) {
-        this.map.setCamera({
-          ...this.map.getCamera(),
-          // limit boundaries to be able to query DB for them
-          // if they are not limited, the longitude can go over 180 and DB will not return any values
-          maxBounds: [-170, -80, 170, 80],
-        })
         const events = ['dragend', 'zoomend']
         events.forEach((event) => {
           this.map.events.add(event, (e) => this.mapViewboxChanged(e))
