@@ -1,3 +1,4 @@
+
 const self = {
   axios: null
 }
@@ -15,6 +16,14 @@ export const fetchVideoInfo = async (route) => {
   const url = `https://youtube.com/oembed?url=${videoUrl}&format=json`
   const { data } = await self.axios.get(url)
   return data
+}
+
+/**
+ * Fetches the list of the video routes within the given geojson polygon
+ * @param {*} polygonGeoJson 
+ */
+export const fetchVideosWithinPolygon = (polygonGeoJson) => {
+  
 }
 
 export default function({ app }, inject) {
