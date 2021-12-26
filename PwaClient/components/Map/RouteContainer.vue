@@ -34,10 +34,6 @@ export default {
       // calculate routes to delete
       const toBeDeleted = differenceBy(oldRoutes, newRoutes, 'id')
       const toBeAdded = differenceBy(newRoutes, oldRoutes, 'id')
-      console.log({
-        toBeDeleted,
-        toBeAdded,
-      })
 
       // delete all old values
       toBeDeleted.forEach((route) => {
