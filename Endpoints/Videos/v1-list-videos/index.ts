@@ -2,6 +2,7 @@ import { AzureFunction, HttpRequest } from "@azure/functions";
 import * as AzureMiddleware from "azure-middleware";
 import resolveDbConnection from "../middlewares/resolve-db-connection";
 import CustomContext from "../core/CustomContext";
+import { fetchVideosWithinPolygon } from "../services/videoService";
 
 /** Main function code */
 const httpTrigger: AzureFunction = async function (
@@ -16,7 +17,8 @@ const httpTrigger: AzureFunction = async function (
     return;
   }
   // query the db for the routes within this boundaries
-  context.res.status(200).json({ message: "OK" });
+  const routes = await fetchVideosWithinPolygon(context.cosmosDb, boundaries);
+  context.res.status(200).json(routes);
   // exit
   context.done();
 };
