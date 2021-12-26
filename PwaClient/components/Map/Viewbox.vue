@@ -3,10 +3,12 @@
 </template>
 
 <script>
+import { bboxPolygon } from '@turf/turf'
+import { Map } from 'azure-maps-control'
 export default {
   props: {
     map: {
-      type: Object,
+      type: Map,
       required: false,
       default: () => null,
     },
@@ -14,10 +16,18 @@ export default {
   watch: {
     map() {
       if (this.map) {
+        this.map.setCamera({
+          ...this.map.getCamera(),
+          // limit boundaries to be able to query DB for them
+          // if they are not limited, the longitude can go over 180 and DB will not return any values
+          maxBounds: [-170, -80, 170, 80],
+        })
         const events = ['dragend', 'zoomend']
         events.forEach((event) => {
           this.map.events.add(event, (e) => this.mapViewboxChanged(e))
         })
+        // load default points
+        this.map.events.add('ready', this.mapViewboxChanged)
       }
     },
   },
@@ -25,20 +35,7 @@ export default {
     mapViewboxChanged() {
       // get camera and current map bound box
       const { bounds } = this.map.getCamera()
-      // bounds is a set of 2 points - a corners of the viewport
-      // need to convert it to geojson polygon
-      const geojson = {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [bounds[0], bounds[1]],
-            [bounds[2], bounds[1]],
-            [bounds[2], bounds[3]],
-            [bounds[0], bounds[3]],
-            [bounds[0], bounds[1]],
-          ],
-        ],
-      }
+      const geojson = bboxPolygon(bounds)
       this.$emit('mapViewportChanged', geojson)
     },
   },

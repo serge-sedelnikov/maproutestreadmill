@@ -2,6 +2,7 @@
 </template>
 
 <script>
+import { differenceBy } from 'lodash'
 export default {
   props: {
     routes: {
@@ -18,13 +19,47 @@ export default {
   data() {
     return {
       datasource: null,
+      pointsLayer: null,
     }
   },
   watch: {
     map() {
       if (this.map) {
-        this.map.events.add('ready', () => this.renderRoutes())
+        this.map.events.add('ready', () => this.createPointLayerAndSource())
       }
+    },
+    routes(newRoutes, oldRoutes) {
+      const source = this.datasource
+
+      // calculate routes to delete
+      const toBeDeleted = differenceBy(oldRoutes, newRoutes, 'id')
+      const toBeAdded = differenceBy(newRoutes, oldRoutes, 'id')
+      console.log({
+        toBeDeleted,
+        toBeAdded,
+      })
+
+      // delete all old values
+      toBeDeleted.forEach((route) => {
+        const shapes = source.getShapes()
+        const geoJson = shapes.find(
+          (s) => s.data.geometry.properties.id === route.id
+        )
+        source.remove(geoJson)
+      })
+
+      // add all new values
+      toBeAdded.forEach((route) => {
+        // add all props to geoJson as additional data
+        const geoJson = {
+          ...route.geojson,
+          properties: {
+            ...route,
+            geojson: undefined,
+          },
+        }
+        source.add(geoJson)
+      })
     },
   },
   methods: {
@@ -61,9 +96,10 @@ export default {
       this.$emit('routeClicked', properties.id)
     },
     // renders points on the map
-    renderRoutes() {
+    createPointLayerAndSource() {
       const atlas = this.$atlas
-      const { map, routes } = this
+      const { map } = this
+
       const source = new atlas.source.DataSource(null, {
         cluster: true,
         // The radius in pixels to cluster points together.
@@ -72,27 +108,18 @@ export default {
         // If you zoom in more than this, all points are rendered as symbols.
         clusterMaxZoom: 15,
       })
+
       map.sources.add(source)
       this.datasource = source
       // TODO: Add style for each point based on type, etc.
-      const pointsLayer = new atlas.layer.BubbleLayer(source)
-      map.layers.add(pointsLayer)
-      routes.forEach((route) => {
-        // add all props to geoJson as additioal data
-        const geoJson = {
-          ...route.geojson,
-          properties: {
-            ...route,
-            geojson: undefined,
-          },
-        }
-        source.add(geoJson)
-      })
+      this.pointsLayer = new atlas.layer.BubbleLayer(source)
+      map.layers.add(this.pointsLayer)
+
       const pointClicked = this.pointClicked
       const callback = function (event) {
         pointClicked(event)
       }
-      map.events.add('click', pointsLayer, callback)
+      map.events.add('click', this.pointsLayer, callback)
     },
   },
 }

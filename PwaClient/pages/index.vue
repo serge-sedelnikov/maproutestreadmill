@@ -33,7 +33,12 @@ export default {
     },
     handleViewportChanged(geojson) {
       // need to fetch the routes for current viewport
-      this.fetchVideosWithinPolygon(geojson)
+      // convert geojson to geometry with coordinates
+      const boundaries = {
+        type: "Polygon",
+        coordinates: geojson.geometry.coordinates
+      }
+      this.fetchVideosWithinPolygon(boundaries)
     }
   },
 }

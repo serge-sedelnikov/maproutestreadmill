@@ -30,6 +30,7 @@ export default {
         authType: 'subscriptionKey',
         subscriptionKey: MapApiKey,
       },
+      minZoom: 1
     })
     this.map = map
   },
